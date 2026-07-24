@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>W YT — Experimento 2B</title>
+  <link rel="stylesheet" href="css/youtube.css"/>
+  <link rel="stylesheet" href="css/youtube-b.css"/>
+</head>
+<body data-variant="B">
+
+<!-- TIMER BANNER FEO -->
+<div id="timer-banner" class="timer-b">
+  [EXP_2B::VIDEO_PLAYER] >> TIEMPO_RESTANTE: <span id="timer-display">6:00</span> &lt;&lt;
+</div>
+
+<!-- NAVBAR FEA -->
+<nav class="yt-nav nav-b">
+  <div class="yt-nav-left">
+    <img src="images/logo_waifu.gif" class="yt-logo-img logo-b" alt="logo"/>
+    <span class="yt-logo-text logo-text-b">W_YT_v2</span>
+  </div>
+  <div class="yt-nav-center">
+    <input type="text" class="yt-search search-b" placeholder="BUSCAR_VIDEO..."/>
+    <button class="yt-search-btn search-btn-b">GO</button>
+  </div>
+  <div class="yt-nav-right">
+    <img src="images/icon_perfil.jpg" class="yt-avatar-nav avatar-b" alt="perfil"/>
+  </div>
+</nav>
+
+<!-- CONTENIDO -->
+<div class="yt-main main-b">
+
+  <div class="yt-left left-b">
+
+    <!-- PORTADA -->
+    <div class="yt-thumbnail-wrapper thumb-wrap-b" id="thumbnail-wrapper">
+      <img src="images/miniatura_portada.jpg" class="yt-thumbnail thumb-b" alt="portada"/>
+      <button class="yt-play-big play-big-b" id="play-big-btn">► PLAY</button>
+    </div>
+
+    <!-- PLAYER -->
+    <div class="yt-player-wrapper player-wrap-b" id="player-wrapper" style="display:none;">
+      <video id="yt-video" src="images/taser_chouchou.mp4" preload="metadata"></video>
+
+      <div class="yt-controls controls-b" id="yt-controls">
+        <div class="yt-progress-bar-wrap progress-wrap-b" id="progress-wrap">
+          <div class="yt-progress-bg progress-bg-b">
+            <div class="yt-progress-fill progress-fill-b" id="progress-fill"></div>
+            <input type="range" class="yt-progress-input progress-input-b" id="progress-input" value="0" min="0" step="0.1"/>
+          </div>
+        </div>
+        <div class="yt-controls-row controls-row-b">
+          <div class="yt-controls-left">
+            <button class="yt-ctrl-btn ctrl-btn-b" id="play-pause-btn">▶</button>
+            <button class="yt-ctrl-btn ctrl-btn-b" id="rewind-btn">« -10</button>
+            <button class="yt-ctrl-btn ctrl-btn-b" id="forward-btn">+10 »</button>
+            <div class="yt-volume-wrap">
+              <button class="yt-ctrl-btn ctrl-btn-b" id="mute-btn">VOL</button>
+              <input type="range" id="volume-input" class="yt-volume-slider volume-b" min="0" max="1" step="0.05" value="1"/>
+            </div>
+            <span class="yt-time-display time-b" id="time-display">0:00 / 0:00</span>
+          </div>
+          <div class="yt-controls-right">
+            <button class="yt-ctrl-btn ctrl-btn-b" id="fullscreen-btn">[ ]</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- INFO TÍTULO -->
+    <div class="yt-video-info info-b">
+      <h1 class="yt-video-title title-b">(TEASER) Lily Chou Chou sub español (Director : Shunji Iwai)</h1>
+      <div class="yt-meta-row meta-b">
+        <div class="yt-channel channel-b">
+          <img src="images/icon_perfil.jpg" class="yt-channel-avatar avatar-ch-b" alt="canal"/>
+          <div class="yt-channel-info">
+            <span class="yt-channel-name name-b">Lily Chou Chou</span>
+            <span class="yt-channel-subs subs-b">48.2K suscriptores</span>
+          </div>
+          <button class="yt-subscribe-btn subscribe-b" id="subscribe-btn">SUSCRIBIR</button>
+        </div>
+        <div class="yt-actions actions-b">
+          <button class="yt-action-btn action-b" id="like-btn">
+            <img src="images/icon_pulgar.png" class="yt-icon-btn" alt="like"/>
+            <span id="like-count">1.2K</span>
+          </button>
+          <div class="yt-divider-v"></div>
+          <button class="yt-action-btn action-b" id="dislike-btn">
+            <img src="images/icon_dislike.png" class="yt-icon-btn" alt="dislike"/>
+            <span id="dislike-count">34</span>
+          </button>
+        </div>
+      </div>
+      <div class="yt-description desc-b" id="description-box">
+        <p id="desc-short">
+          Teaser sub español de "All About Lily Chou-Chou" (2001).
+          <span id="desc-more-btn" class="yt-desc-toggle" onclick="toggleDesc()">...VER_MAS</span>
+        </p>
+        <p id="desc-full" style="display:none;">
+          Teaser subtitulado al español de la película "All About Lily Chou-Chou" (2001), dirigida por Shunji Iwai.
+          Una de las películas más memorables del cine japonés contemporáneo.
+          <span class="yt-desc-toggle" onclick="toggleDesc()">CERRAR</span>
+        </p>
+      </div>
+    </div>
+
+    <!-- COMENTARIOS -->
+    <div class="yt-comments-section comments-b">
+      <h3 class="yt-comments-title comments-title-b">
+        COMENTARIOS_LISTA [<span id="comment-count">0</span>]
+      </h3>
+      <div class="yt-comment-input-row input-row-b">
+        <img src="images/icon_perfil.jpg" class="yt-comment-avatar comment-avatar-b" alt="tú"/>
+        <div class="yt-comment-input-wrap">
+          <input
+            type="text"
+            id="comment-input"
+            class="yt-comment-input comment-input-b"
+            placeholder="AGREGAR_COMENTARIO..."
+          />
+          <div class="yt-comment-actions" id="comment-actions" style="display:none;">
+            <button class="yt-cancel-btn cancel-b" onclick="cancelComment()">X_CANCELAR</button>
+            <button class="yt-submit-btn submit-b" id="comment-submit" onclick="submitComment()">
+              ENVIAR_MSG
+            </button>
+          </div>
+        </div>
+      </div>
+      <div id="comments-list" class="yt-comments-list comments-list-b"></div>
+    </div>
+
+  </div>
+
+  <!-- SIDEBAR -->
+  <div class="yt-sidebar sidebar-b">
+    <p class="yt-sidebar-title sidebar-title-b">VIDEOS_RELACIONADOS://</p>
+    <div class="yt-suggested suggested-b">
+      <img src="images/miniatura_portada.jpg" class="yt-suggested-thumb" alt=""/>
+      <div class="yt-suggested-info suggested-info-b">
+        <p class="yt-suggested-name">All About Lily Chou-Chou (Trailer)</p>
+        <p class="yt-suggested-channel">Lily Chou Chou</p>
+        <p class="yt-suggested-views">2.4M vistas</p>
+      </div>
+    </div>
+    <div class="yt-suggested suggested-b">
+      <img src="images/miniatura_portada.jpg" class="yt-suggested-thumb" alt=""/>
+      <div class="yt-suggested-info suggested-info-b">
+        <p class="yt-suggested-name">Shunji Iwai — Filmografía completa</p>
+        <p class="yt-suggested-channel">CinéfileJP</p>
+        <p class="yt-suggested-views">890K vistas</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- MODAL FIN -->
+<div id="end-modal" class="yt-end-modal">
+  <div class="yt-end-card">
+    <h2>⏱ ¡Tiempo del Experimento 2B!</h2>
+    <p>Has completado ambos experimentos de video.<br/>
+    Ahora por favor responde la encuesta final.</p>
+    <button onclick="window.open('https://forms.google.com','_blank'); window.location.href='gracias.html';" class="yt-end-btn">
+      Ir a la Encuesta →
+    </button>
+  </div>
+</div>
+
+<script src="js/youtube.js"></script>
+</body>
+</html>

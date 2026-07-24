@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Experimento A - W Mail | PsicoWeb Plus</title>
+<link rel="stylesheet" href="css/webmail-a.css">
+</head>
+<body>
+
+  <div class="wm-banner">
+    <span>Experimento A · Interfaz W Mail</span>
+    <span class="wm-timer" id="wmTimer">⏱ 3:00</span>
+    <a href="webmail-b.html" class="wm-next-btn">Continuar a Experimento B →</a>
+  </div>
+
+  <div class="wm-app">
+
+    <!-- FILA SUPERIOR: LOGO + BUSCADOR -->
+    <div class="wm-topbar-row">
+      <div class="wm-logo-box">
+        <span class="wm-logo-w">W</span>
+        <img src="images/logo_waifu.png" alt="Logo" class="wm-logo-avatar">
+        <span class="wm-logo-text">Mail</span>
+      </div>
+      <div class="wm-search-box">
+        <span class="wm-search-icon">🔍</span>
+        <input type="text" id="wmSearch" placeholder="Buscar en el correo">
+      </div>
+    </div>
+
+    <div class="wm-body">
+      <!-- SIDEBAR -->
+      <aside class="wm-sidebar">
+        <button id="wmComposeBtn" class="wm-compose-btn" title="Redactar mensaje" aria-label="Redactar mensaje">
+          ✏️
+        </button>
+
+        <nav class="wm-folder-nav">
+          <button class="folder-btn" data-folder="inbox" title="Recibidos">
+            <img src="images/icon_recibidos.png" alt="Recibidos" class="wm-nav-icon">
+            <span id="wmInboxBadge" class="wm-badge">0</span>
+          </button>
+          <button class="folder-btn" data-folder="starred" title="Destacados">
+            <img src="images/icon_estrella.png" alt="Destacados" class="wm-nav-icon">
+          </button>
+          <button class="folder-btn" data-folder="sent" title="Enviados">
+            <img src="images/icon_enviar.png" alt="Enviados" class="wm-nav-icon">
+          </button>
+        </nav>
+      </aside>
+
+      <!-- CONTENIDO -->
+      <main class="wm-main">
+
+      <!-- LISTA -->
+      <section id="wmListView">
+        <h2 id="wmViewTitle" class="wm-view-title">Recibidos</h2>
+        <ul id="wmMessageList" class="wm-message-list"></ul>
+      </section>
+
+      <!-- DETALLE DE MENSAJE -->
+      <section id="wmDetail" class="wm-detail" style="display:none;">
+        <button id="wmBackBtn" class="wm-back-btn">← Volver</button>
+
+        <div class="wm-detail-header">
+          <div id="wmDetailAvatar" class="wm-detail-avatar"></div>
+          <div class="wm-detail-heading">
+            <h3 id="wmDetailFrom"></h3>
+            <p id="wmDetailSubject" class="wm-detail-subject-line"></p>
+          </div>
+          <span id="wmDetailDate" class="wm-detail-date"></span>
+          <button id="wmDetailStar" class="wm-star-btn wm-detail-star" title="Destacar">
+            <img src="images/icon_estrella.png" alt="Estrella" class="wm-star-icon">
+          </button>
+        </div>
+
+        <div id="wmDetailAttachments" class="wm-attachments-row"></div>
+
+        <p id="wmDetailBody" class="wm-detail-body"></p>
+      </section>
+      </main>
+    </div>
+  </div>
+
+  <!-- MODAL REDACTAR -->
+  <div id="wmComposeOverlay" class="wm-compose-overlay">
+    <form id="wmComposeForm" class="wm-compose-modal">
+      <div class="wm-compose-header">
+        <span>Mensaje nuevo</span>
+        <button type="button" id="wmCloseCompose" class="wm-icon-btn" aria-label="Cerrar">✕</button>
+      </div>
+
+      <input type="text" id="wmComposeTo" placeholder="Para" class="wm-compose-input">
+      <input type="text" id="wmComposeSubject" placeholder="Asunto" class="wm-compose-input">
+      <textarea id="wmComposeBody" placeholder="Escribe tu mensaje..." class="wm-compose-textarea"></textarea>
+
+      <div id="wmPendingAttachments" class="wm-attachments-row"></div>
+
+      <div class="wm-compose-footer">
+        <button type="submit" class="wm-send-btn">Enviar ➤</button>
+        <label for="wmFileInput" class="wm-attach-btn" title="Adjuntar archivo">📎</label>
+        <input type="file" id="wmFileInput" multiple hidden>
+        <button type="button" id="wmDiscardCompose" class="wm-discard-btn" title="Descartar">🗑️</button>
+      </div>
+    </form>
+  </div>
+
+  <script>window.WEBMAIL_KEY = 'webmail_state_experimento_a';</script>
+  <script src="js/webmail.js"></script>
+</body>
+</html>

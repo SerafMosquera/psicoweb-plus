@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portafolio de Evidencias - PsicoWeb Plus</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .portafolio {
+      max-width: 1200px;
+      margin: 3rem auto;
+      padding: 2rem;
+    }
+    .portafolio h1 {
+      text-align: center;
+      margin-bottom: 3rem;
+      color: #1e2937;
+    }
+    .miembros {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+    .miembro-card {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      transition: 0.3s;
+    }
+    .miembro-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 35px rgba(0,0,0,0.15);
+    }
+    .miembro-card h3 {
+      background: #2563eb;
+      color: white;
+      padding: 1.2rem;
+      margin: 0;
+      text-align: center;
+    }
+    .miembro-content {
+      padding: 1.5rem;
+      text-align: center;
+    }
+    .btn-canva {
+      display: inline-block;
+      background: #10b981;
+      color: white;
+      padding: 12px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+    .btn-canva:hover {
+      background: #059669;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo">PsicoWeb <span>Plus</span></div>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="experimento.html">Experimento</a></li>
+        <li><a href="resultados.html">Resultados</a></li>
+        <li><a href="portafolio.html">Portafolio</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="portafolio">
+    <h1>Portafolio de Evidencias Individuales</h1>
+
+    <div class="miembros">
+      <div class="miembro-card">
+        <h3>Fares Mosquera</h3>
+        <div class="miembro-content">
+          <p><strong>Líder de Proyecto (PM)</strong></p>
+          <a href="https://canva.com/" target="_blank" class="btn-canva">Ver Evidencias en Canva →</a>
+        </div>
+      </div>
+
+      <div class="miembro-card">
+        <h3>Eric Flores</h3>
+        <div class="miembro-content">
+          <p><strong>Desarrollador Full Stack</strong></p>
+          <a href="https://canva.com/" target="_blank" class="btn-canva">Ver Evidencias en Canva →</a>
+        </div>
+      </div>
+
+      <div class="miembro-card">
+        <h3>Adolfo Reyes</h3>
+        <div class="miembro-content">
+          <p><strong>Analista de Requerimientos</strong></p>
+          <a href="https://canva.com/" target="_blank" class="btn-canva">Ver Evidencias en Canva →</a>
+        </div>
+      </div>
+
+      <div class="miembro-card">
+        <h3>Hansel Batista</h3>
+        <div class="miembro-content">
+          <p><strong>Diseñador UX/UI</strong></p>
+          <a href="https://canva.com/" target="_blank" class="btn-canva">Ver Evidencias en Canva →</a>
+        </div>
+      </div>
+    </div>
+
+    <p style="text-align:center; margin-top:4rem; color:#64748b;">
+      Proyecto Final - Gestion de Proyectos Digitales<br>
+      Instituto Tecnico Superior Especializado (ITSE)  Cuatrimestre II-2026
+    </p>
+  </div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,184 @@
+/* ====================== ESTILOS GENERALES ====================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f8fafc;
+  color: #1e2937;
+  line-height: 1.6;
+}
+
+header {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+nav {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #2563eb;
+}
+
+.logo span {
+  color: #10b981;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
+
+nav a {
+  text-decoration: none;
+  color: #334155;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: #2563eb;
+}
+
+/* ====================== BOTONES ====================== */
+.btn-primary {
+  background: linear-gradient(135deg, #2563eb, #3b82f6);
+  color: white;
+  padding: 14px 28px;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 25px rgba(37, 99, 235, 0.4);
+  background: linear-gradient(135deg, #1e40af, #2563eb);
+}
+
+/* ====================== TARJETAS ====================== */
+.card {
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: all 0.4s ease;
+}
+
+.card:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* ====================== HERO ====================== */
+.hero {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 5rem 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  min-height: 85vh;
+}
+
+.hero-content h1 {
+  font-size: 3.4rem;
+  line-height: 1.1;
+  margin-bottom: 1.3rem;
+}
+
+.hero-content p {
+  font-size: 1.4rem;
+  color: #475569;
+  margin-bottom: 2.5rem;
+}
+
+/* ====================== EXPERIMENTOS ====================== */
+.experiments {
+  max-width: 1300px;
+  margin: 4rem auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.experiment-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 2.5rem;
+  margin-top: 3rem;
+  justify-content: center;
+}
+
+.experiment-cards.single {
+  grid-template-columns: minmax(340px, 460px);
+  justify-content: center;
+}
+
+.card {
+  padding: 2.5rem;
+  text-align: left;
+}
+
+.card h3 {
+  margin-bottom: 1rem;
+  color: #1e2937;
+  font-size: 1.4rem;
+}
+
+.card .badge-tiempo {
+  display: inline-block;
+  background: #e0f2fe;
+  color: #0369a1;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 999px;
+  margin-bottom: 0.8rem;
+}
+
+/* ====================== FOOTER ====================== */
+footer {
+  background: #1e2937;
+  color: #cbd5e1;
+  text-align: center;
+  padding: 3rem 2rem;
+  margin-top: 4rem;
+}
+
+footer p {
+  margin: 8px 0;
+}
+
+/* ====================== RESPONSIVE ====================== */
+@media (max-width: 768px) {
+  .hero {
+    grid-template-columns: 1fr;
+    text-align: center;
+    min-height: auto;
+    padding: 3rem 1rem;
+  }
+}
