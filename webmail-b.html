@@ -1,72 +1,66 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Experimento B - W Mail | PsicoWeb Plus</title>
-<link rel="stylesheet" href="css/webmail-b.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Experimento B - W Mail | PsicoWeb Plus</title>
+  <link rel="stylesheet" href="css/webmail-b.css">
 </head>
 <body>
 
   <div class="wm-banner">
-    <span>EXPERIMENTO B :: interfaz W-Mail!!</span>
+    <span>Experimento B · Interfaz W Mail</span>
     <span class="wm-timer" id="wmTimer">⏱ 3:00</span>
-    <!-- Redirección hacia el Experimento 2 (YouTube) -->
-    <a href="transicion-experimento2.html" class="wm-next-btn">Siguiente experimento -&gt;&gt;</a>
+    <a href="transicion-experimento2.html" class="wm-next-btn">Continuar al Experimento 2 →</a>
   </div>
 
   <div class="wm-app">
 
     <div class="wm-topbar-row">
+      <div class="wm-logo-box">
+        <span class="wm-logo-w">W</span>
+        <img src="images/logo_waifu.png" alt="Logo" class="wm-logo-avatar">
+        <span class="wm-logo-text">Mail</span>
+      </div>
       <div class="wm-search-box">
         <span class="wm-search-icon">🔍</span>
-        <input type="text" id="wmSearch" placeholder="buscar...">
-      </div>
-      <div class="wm-logo-box">
-        <span class="wm-logo-text">Mail</span>
-        <img src="images/logo_waifu.png" alt="Logo" class="wm-logo-avatar">
-        <span class="wm-logo-w">W</span>
+        <input type="text" id="wmSearch" placeholder="Buscar en el correo">
       </div>
     </div>
 
     <div class="wm-body">
-      <!-- CONTENIDO -->
+
       <main class="wm-main">
 
-      <!-- LISTA -->
-      <section id="wmListView">
-        <h2 id="wmViewTitle" class="wm-view-title">Recibidos</h2>
-        <ul id="wmMessageList" class="wm-message-list"></ul>
-      </section>
+        <section id="wmListView">
+          <h2 id="wmViewTitle" class="wm-view-title">Recibidos</h2>
+          <ul id="wmMessageList" class="wm-message-list"></ul>
+        </section>
 
-      <!-- DETALLE DE MENSAJE -->
-      <section id="wmDetail" class="wm-detail" style="display:none;">
-        <div class="wm-detail-header">
-          <span id="wmDetailDate" class="wm-detail-date"></span>
-          <button id="wmDetailStar" class="wm-star-btn wm-detail-star" title="Destacar">
-            <img src="images/icon_estrella.png" alt="Estrella" class="wm-star-icon">
-          </button>
-          <div id="wmDetailAvatar" class="wm-detail-avatar"></div>
-          <div class="wm-detail-heading">
-            <h3 id="wmDetailFrom"></h3>
-            <p id="wmDetailSubject" class="wm-detail-subject-line"></p>
+        <section id="wmDetail" class="wm-detail" style="display:none;">
+          <button id="wmBackBtn" class="wm-back-btn">← Volver</button>
+
+          <div class="wm-detail-header">
+            <div id="wmDetailAvatar" class="wm-detail-avatar"></div>
+            <div class="wm-detail-heading">
+              <h3 id="wmDetailFrom"></h3>
+              <p id="wmDetailSubject" class="wm-detail-subject-line"></p>
+            </div>
+            <span id="wmDetailDate" class="wm-detail-date"></span>
+            <button id="wmDetailStar" class="wm-star-btn wm-detail-star" title="Destacar">
+              <img src="images/icon_estrella.png" alt="Estrella" class="wm-star-icon">
+            </button>
           </div>
-        </div>
 
-        <button id="wmBackBtn" class="wm-back-btn">volver...</button>
+          <div id="wmDetailAttachments" class="wm-attachments-row"></div>
+          <p id="wmDetailBody" class="wm-detail-body"></p>
+        </section>
 
-        <div id="wmDetailAttachments" class="wm-attachments-row"></div>
-
-        <p id="wmDetailBody" class="wm-detail-body"></p>
-      </section>
       </main>
 
-      <!-- SIDEBAR (a la derecha, horizontal y desordenado) -->
       <aside class="wm-sidebar">
+        <button id="wmComposeBtn" class="wm-compose-btn" title="Redactar mensaje">✏️</button>
         <nav class="wm-folder-nav">
-          <button class="folder-btn" data-folder="sent" title="Enviados">
-            <img src="images/icon_enviar.png" alt="Enviados" class="wm-nav-icon">
-          </button>
           <button class="folder-btn" data-folder="inbox" title="Recibidos">
             <img src="images/icon_recibidos.png" alt="Recibidos" class="wm-nav-icon">
             <span id="wmInboxBadge" class="wm-badge">0</span>
@@ -74,39 +68,73 @@
           <button class="folder-btn" data-folder="starred" title="Destacados">
             <img src="images/icon_estrella.png" alt="Destacados" class="wm-nav-icon">
           </button>
+          <button class="folder-btn" data-folder="sent" title="Enviados">
+            <img src="images/icon_enviar.png" alt="Enviados" class="wm-nav-icon">
+          </button>
         </nav>
-
-        <button id="wmComposeBtn" class="wm-compose-btn" title="Redactar mensaje" aria-label="Redactar mensaje">
-          Nuevo msj +
-        </button>
       </aside>
+
     </div>
   </div>
 
-  <!-- MODAL REDACTAR -->
+  <!-- MODAL REDACTAR — campos en orden inverso a A -->
   <div id="wmComposeOverlay" class="wm-compose-overlay">
     <form id="wmComposeForm" class="wm-compose-modal">
       <div class="wm-compose-header">
-        <button type="button" id="wmCloseCompose" class="wm-icon-btn" aria-label="Cerrar">cerrar (x)</button>
-        <span>>> redactar correo</span>
+        <span>Mensaje nuevo</span>
+        <button type="button" id="wmCloseCompose" class="wm-icon-btn">✕</button>
       </div>
 
-      <div class="wm-compose-footer">
-        <label for="wmFileInput" class="wm-attach-btn" title="Adjuntar archivo">[adjuntar archivo]</label>
-        <input type="file" id="wmFileInput" multiple hidden>
-        <button type="button" id="wmDiscardCompose" class="wm-discard-btn" title="Descartar">borrar todo</button>
-        <button type="submit" class="wm-send-btn">MANDAR!</button>
-      </div>
+      <!-- Orden invertido: primero el cuerpo, luego asunto, luego para -->
+      <textarea id="wmComposeBody" placeholder="Escribe tu mensaje..." class="wm-compose-textarea"></textarea>
+      <input type="text" id="wmComposeSubject" placeholder="Asunto" class="wm-compose-input">
+      <input type="text" id="wmComposeTo" placeholder="Para" class="wm-compose-input">
 
       <div id="wmPendingAttachments" class="wm-attachments-row"></div>
 
-      <textarea id="wmComposeBody" placeholder="mensaje aqui" class="wm-compose-textarea"></textarea>
-      <input type="text" id="wmComposeSubject" placeholder="tema del correo" class="wm-compose-input">
-      <input type="text" id="wmComposeTo" placeholder="destinatario" class="wm-compose-input">
+      <div class="wm-compose-footer">
+        <button type="submit" class="wm-send-btn">Enviar ➤</button>
+        <label for="wmFileInput" class="wm-attach-btn">📎</label>
+        <input type="file" id="wmFileInput" multiple hidden>
+        <button type="button" id="wmDiscardCompose" class="wm-discard-btn">🗑️</button>
+      </div>
     </form>
+  </div>
+
+  <!-- MODAL FIN -->
+  <div id="wmEndModal" class="wm-end-modal">
+    <div class="wm-end-card">
+      <h2>⏱ ¡Tiempo del Experimento B!</h2>
+      <p>Has completado la versión B de <strong>W Mail</strong>.<br>
+      Ahora continuarás con el <strong>Experimento 2</strong>.</p>
+      <button class="wm-end-btn" onclick="window.location.href='transicion-experimento2.html'">
+        Continuar →
+      </button>
+    </div>
   </div>
 
   <script>window.WEBMAIL_KEY = 'webmail_state_experimento_b';</script>
   <script src="js/webmail.js"></script>
+  <script>
+    (function () {
+      var DURATION = 3 * 60;
+      var timeLeft = DURATION;
+      var timerEl  = document.getElementById('wmTimer');
+      var endModal = document.getElementById('wmEndModal');
+
+      var interval = setInterval(function () {
+        timeLeft--;
+        var m = Math.floor(timeLeft / 60);
+        var s = timeLeft % 60;
+        timerEl.textContent = '⏱ ' + m + ':' + String(s).padStart(2, '0');
+        if (timeLeft <= 30) timerEl.style.opacity = '0.45';
+        if (timeLeft <= 0) {
+          clearInterval(interval);
+          if (endModal) endModal.classList.add('open');
+        }
+      }, 1000);
+    })();
+  </script>
+
 </body>
 </html>
